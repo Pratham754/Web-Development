@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document2</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
+
+        body {
+            background-color: #131316;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        .back {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        a {
+            text-decoration-line: none;
+            color: #ffffff;
+        }
+
+        p {
+            margin: 0;
+            text-align: center;
+        }
+
+        section {
+            display: grid;
+            align-content: center;
+            place-items: center;
+        }
+
+        .hidden {
+            min-height: 100vh;
+            opacity: 0;
+            filter: blur(15px);
+            transform: translateX(-100%);
+            transition: opacity 1s, filter 1s, transform 1s;
+        }
+
+        .show {
+            min-height: 100vh;
+            opacity: 1;
+            filter: blur(0);
+            transform: translateX(0);
+        }
+
+        .wc {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        .footer {
+            display: flex;
+        }
+
+        .footer:nth-child(2) {
+            transition-delay: 2s;
+        }
+
+        .footer:nth-child(3) {
+            transition-delay: 4s;
+        }
+
+        .footer:nth-child(4) {
+            transition-delay: 6s;
+        }
+
+        .lists {
+            margin: 10px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            align-content: center;
+            margin: 10px;
+        }
+
+        .logo {
+            z-index: 1;
+            position: absolute;
+            scale: 2;
+            margin: 40px;
+            margin-top: 40px;
+            padding: 0px;
+        }
+
+        .logo:hover {
+            transform: rotate(45deg) scale(1.2);
+            transition: 500ms;
+        }
+
+        .logo:not(:hover) {
+            transform: rotate(0deg) scale(1);
+            transition: 500ms;
+        }
+
+        .ico {
+            position: relative;
+            margin-right: 4px;
+            transition: 150ms ease-out;
+        }
+
+        .ico:hover {
+            font-size: 18px;
+        }
+
+        .ico::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            background-color: rgb(168, 166, 166);
+            filter: blur(100px);
+            opacity: 0;
+            transition: opacity 150ms;
+        }
+
+        .ico:hover::before {
+            opacity: 1;
+        }
+
+        @media (max-width: 1000px) {
+            p {
+                text-align: center;
+            }
+        }
+    </style>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                console.log(entry)
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                } else {
+                    entry.target.classList.remove('show');
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+
+</head>
+
+<body>
+    <div class="back">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/tKVh2sUcflM?controls=0&autoplay=1&loop=1"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+    </div>
+
+    <div class="logo">
+        <img src="https://cdn3.emoji.gg/emojis/8709-sun-moon-tarot-cards.png" width="64px" height="64px"
+            alt="sun_moon_tarot_cards">
+    </div>
+
+    <div class="header">
+        <div class="ico">
+            <a href="#none">ABOUT,</a>
+        </div>
+        <div class="ico">
+            <a href="#none">CONTACT,</a>
+        </div>
+        <div class="ico">
+            <a href="#none">MONASTRY</a>
+        </div>
+    </div>
+
+    <section class="hidden">
+        <h1 class="wc">Welcome Aboard !</h1>
+        <p>Welcome To The Luxury Experience</p>
+    </section>
+
+    <section class="hidden">
+        <h1>Our Utilities</h1>
+        <p>The things you own end up owning you.<br>
+            It's only after you lose everything that you're free to do anything.
+        </p>
+    </section>
+
+    <section class="life hidden">
+        <h2>Cherish your life.</h2>
+    </section>
+
+    <section class="windows hidden">
+        <div class="foots">
+            <h3 style="text-align: center;">mkkmkm</h3>
+            <div class="footer">
+                <div class="lists hidden">
+                    <img src="https://api.dicebear.com/7.x/open-peeps/svg?seed=Snowball" alt="avatar" /><br>ABOUT US
+                </div>
+                <div class="lists hidden">
+                    <img src="https://api.dicebear.com/7.x/open-peeps/svg?seed=Snowball" alt="avatar" /><br>CONTACT
+                </div>
+                <div class="lists hidden">
+                    <img src="https://api.dicebear.com/7.x/open-peeps/svg?seed=Snowball" alt="avatar" /><br>DMCAQQ
+                </div>
+                <div class="lists hidden">
+                    <img src="https://api.dicebear.com/7.x/open-peeps/svg?seed=Snowball" alt="avatar" /><br>MAPPAQL
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
